@@ -29,3 +29,19 @@ $ ./build.sh
  - `daq/drscmd` : CUI DAQ ツール
 
 ## つかいかた
+
+### `daq/drsosc`
+
+公式のオシロスコープアプリケーションで, 直感的な操作ができます.
+Config ボタンからVoltage Calibration と Timing Calibration を行う必要があります.
+Voltage Calibration はチェックボックスを上からひとつずつ Checkして何度もするとベースラインノイズが低減するきがします.
+Sampling rateを変更する際は Formに入力した際にEnterキーをおす必要があります.
+
+Saveボタンからbinary形式 (*.dat)でかきだしたWaveformファイルは`decoder/decoder.C`でROOT treeにデコードすることができます.
+
+### `daq/drscl`
+公式のCUIコントロールで, `help` コマンドで全コマンド参照できます.
+
+
+### `daq/drscmd`
+CUI DAQ ツール.

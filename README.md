@@ -18,7 +18,7 @@ $ brew install libusb wxmac
 ### Build
 ```
 $ git clone git@github.com:mzks/drs4_tools.git
-$ cd drs4_tools/official
+$ cd drs4_tools/build
 $ ./build.sh
 ```
 公式ツールをダウンロードし,小さなバグを修正し,CUIツールと一緒にビルドします.

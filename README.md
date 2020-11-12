@@ -127,6 +127,10 @@ options:
 ```
 ここで指定するcenter, samplingは前述の`calib`, `tcalib`コマンドで予め信号を外した状態でCalibration しておく必要があります.
 負値のトリガーを徹底する際は, `-u -t 0.3`などと設定すると, -0.3 Vのトリガースレッショルドを設定できます.
+出力はASCIIで, 1000イベントごとに, `<filename>.000n.dat`のようにファイルが作られます.
+また, `<filename>.txt`に実行したConfigurationが保存されます.
+このASCIIファイルをROOT tree形式に変換するマクロは`decoder/converter.C`です.
+ただしこちらにつくTimestampはシステムのTimestampで多少の誤差があります.
 
 ### 注意点
 DRS4に過剰な電流を流すと壊れるので注意してください.

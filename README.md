@@ -40,6 +40,7 @@ Sampling rateを変更する際は Formに入力した際にEnterキーをおす
 Saveボタンからbinary形式 (*.dat)で書き出したWaveformファイルは`decoder/decoder.C`でROOT tree形式にデコードすることができます.
 
 |Branch Name |説明 |
+| ---------- | --------------------------- |
 |eventSerial |ファイルでユニークなイベント番号 |
 |Year        |イベントの取得時間 (年)        |
 |Month       |月 |

@@ -30,6 +30,7 @@ LIBS          = -lpthread -lutil -lusb-1.0
 
 ifeq ($(OS),Darwin)
 CFLAGS        += -stdlib=libc++
+CFLAGS        += -I/opt/homebrew/include
 endif         
 
 # wxWidgets libs and flags

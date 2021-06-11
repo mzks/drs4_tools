@@ -3,7 +3,7 @@
  * Usage: $root -l -b -q decoder.C
  * Author K. Mizukoshi
  * DRS4 binary data test
- * 2018 Jul 13
+ * 2021 Jun 11
  * Ref. https://www.psi.ch/drs/DocumentationEN/manual_rev50.pdf
 */
 

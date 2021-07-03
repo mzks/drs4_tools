@@ -124,8 +124,10 @@ int main(int argc, char** argv)
 	// OR  Bit0=CH1, Bit1=CH2,  Bit2=CH3,  Bit3=CH4,  Bit4=EXT
 	// AND Bit8=CH1, Bit9=CH2, Bit10=CH3, Bit11=CH4, Bit12=EXT
 	// TRANSP Bit15
-	// i.e., ch1 or ch2 -> 3
-	// ch1 and ch2 -> 768
+	// This official comment may be wrong.
+	// Acrual behavior of and/or is inverted.
+	// i.e., ch1 or ch2 -> 768
+	// ch1 and ch2 -> 3
 	if(pars.exist("neg_trig")){
 		trigger = pars.get<double>("trigger") * -1.;
 	}else{

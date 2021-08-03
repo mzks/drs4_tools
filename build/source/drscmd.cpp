@@ -42,6 +42,7 @@ int main(int argc, char** argv)
     pars.add<std::string>   ("filename",    'f', "Output file name",    false, "test");
     pars.add<unsigned long int>("num_of_evt",'n', "Number of events",   false, 10);
     pars.add<int>           ("trigger_ch",  'c', "Trigger channel (1--4) 0 is ext.",false, 1);
+    pars.add<int>           ("trigger_ch_bit",  'x', "Trigger channel in bit (expert mode).",false, -1);
     pars.add<bool>          ("edge_neg",    'e', "Trigger type (negative or positive)", false, true);
     pars.add<double>         ("trigger",     't', "Trigger level (V)",  false, 0.0);
     pars.add("neg_trig", 'u', "Negative trigger level");
@@ -117,12 +118,31 @@ int main(int argc, char** argv)
 			b->SetTriggerPolarity(pars.get<bool>("edge_neg")); 
 	}
 
-	/* use following lines to set individual trigger elvels */
-	//b->SetIndividualTriggerLevel(1, 0.1);
-    //b->SetIndividualTriggerLevel(2, 0.2);
-    //b->SetIndividualTriggerLevel(3, 0.3);
-    //b->SetIndividualTriggerLevel(4, 0.4);
-    //b->SetTriggerSource(15);
+    if(pars.get<int>("trigger_ch_bit") != -1){
+
+	// Set trigger configuration
+	// OR  Bit0=CH1, Bit1=CH2,  Bit2=CH3,  Bit3=CH4,  Bit4=EXT
+	// AND Bit8=CH1, Bit9=CH2, Bit10=CH3, Bit11=CH4, Bit12=EXT
+	// TRANSP Bit15
+	// This official comment may be wrong.
+	// Acrual behavior of and/or is inverted.
+	// i.e., ch1 or ch2 -> 768
+	// ch1 and ch2 -> 3
+	if(pars.exist("neg_trig")){
+		trigger = pars.get<double>("trigger") * -1.;
+	}else{
+		trigger = pars.get<double>("trigger");
+	}
+
+	b->SetIndividualTriggerLevel(1, trigger);
+        b->SetIndividualTriggerLevel(2, trigger);
+        b->SetIndividualTriggerLevel(3, trigger);
+        b->SetIndividualTriggerLevel(4, trigger);
+        b->SetTriggerSource(pars.get<int>("trigger_ch_bit"));
+    }
+
+
+
 
     b->SetTriggerDelayNs(pars.get<int>("delay"));             // zero ns trigger delay
 

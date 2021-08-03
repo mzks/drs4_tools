@@ -12,7 +12,7 @@ DRS4 evaluation boardを使うためのツール類
 ### Prerequirement
 MacOS (後述), wxWidgets, libusb.
 ```
-$ brew install libusb wxmac
+$ brew install libusb wxwidgets
 ```
 
 ### Build

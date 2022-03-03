@@ -222,7 +222,7 @@ get the input #2 we have to read DRS channel #2, not #1. */
 
         /* Save waveform: X=time_array[i], Yn=wave_array[n][i] */
         fprintf(f_data, "%ld %li %i\n", n_event, tv.tv_sec, tv.tv_usec);
-        fprintf(f_data, "%i %i %i %i %i %i\n", b->GetScaler(0), b->GetScaler(1), b->GetScaler(2), b->GetScaler(3), b->GetScaler(4), b->GetScaler(5));
+        fprintf(f_data, "%u %u %u %u %u %u\n", b->GetScaler(0), b->GetScaler(1), b->GetScaler(2), b->GetScaler(3), b->GetScaler(4), b->GetScaler(5));
         for (i=0 ; i<1024 ; i++)
             fprintf(f_data, "%7.3f %7.3f %7.3f %7.3f %7.3f %7.3f %7.3f %7.3f \n",
             time_array[0][i], wave_array[0][i], time_array[1][i], wave_array[1][i],
